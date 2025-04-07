@@ -1,1 +1,23 @@
+class AnimalRegistry {
+    private static Map<String, Animal> prototypes = new HashMap<>();
 
+    static {
+        prototypes.put("Sheep", new Sheep("Dolly"));
+        prototypes.put("Cow", new Cow());
+        prototypes.put("BlackHorse", new Horse("Black"));
+        prototypes.put("WhiteHorse", new Horse("White"));
+    }
+
+    public static Animal getAnimal(String type) {
+        try {
+            return prototypes.get(type).clone();
+        } catch (NullPointerException e) {
+            System.out.println("Prototype not found for " + type);
+            return null;
+        }
+    }
+
+    public static void addPrototype(String key, Animal animal) {
+        prototypes.put(key, animal);
+    }
+}
