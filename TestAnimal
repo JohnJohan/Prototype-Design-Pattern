@@ -1,1 +1,37 @@
+public class TestAnimal {
+    public static void main(String[] args) {
 
+        Animal sheep = AnimalRegistry.getAnimal("Sheep");
+        Animal cow = AnimalRegistry.getAnimal("Cow");
+        Animal blackHorse = AnimalRegistry.getAnimal("BlackHorse");
+        Animal whiteHorse = AnimalRegistry.getAnimal("WhiteHorse");
+
+
+        System.out.println("=== Animal Information ===");
+        displayAnimalInfo(sheep);
+        displayAnimalInfo(cow);
+        displayAnimalInfo(blackHorse);
+        displayAnimalInfo(whiteHorse);
+
+
+        if (sheep instanceof Sheep) {
+            ((Sheep) sheep).setName("Molly");
+            System.out.println("\nModified sheep name: " + ((Sheep) sheep).getName());
+        }
+
+
+        AnimalRegistry.addPrototype("BrownHorse", new Horse("Brown"));
+        Animal brownHorse = AnimalRegistry.getAnimal("BrownHorse");
+        displayAnimalInfo(brownHorse);
+    }
+
+    private static void displayAnimalInfo(Animal animal) {
+        if (animal != null) {
+            System.out.println("Type: " + animal.getType());
+            System.out.println("Legs: " + animal.getLegs());
+            System.out.println("Sound: " + animal.getSound());
+            System.out.println("Food: " + animal.getFood());
+            System.out.println();
+        }
+    }
+}
