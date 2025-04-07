@@ -1,1 +1,7 @@
-
+interface Animal extends Cloneable {
+    String getSound();
+    Animal clone();
+    String getType();
+    int getLegs();
+    String getFood();
+}
