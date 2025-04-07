@@ -1,1 +1,43 @@
+class Sheep implements Animal {
+    private String name;
+    private int legs = 4;
+    private String sound = "Baa";
+    private String food = "Grass";
 
+    public Sheep(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String getSound() {
+        return sound;
+    }
+
+    @Override
+    public Sheep clone() {
+        return new Sheep(this.name);
+    }
+
+    @Override
+    public String getType() {
+        return "Sheep named " + name;
+    }
+
+    @Override
+    public int getLegs() {
+        return legs;
+    }
+
+    @Override
+    public String getFood() {
+        return food;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
