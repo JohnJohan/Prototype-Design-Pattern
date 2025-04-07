@@ -1,1 +1,30 @@
+class Cow implements Animal {
+    private int legs = 4;
+    private String sound = "Moo";
+    private String food = "Hay";
 
+    @Override
+    public String getSound() {
+        return sound;
+    }
+
+    @Override
+    public Cow clone() {
+        return new Cow();
+    }
+
+    @Override
+    public String getType() {
+        return "Cow";
+    }
+
+    @Override
+    public int getLegs() {
+        return legs;
+    }
+
+    @Override
+    public String getFood() {
+        return food;
+    }
+}
